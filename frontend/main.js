@@ -1,5 +1,5 @@
 
-const url = 'https://14phqt54-3000.use2.devtunnels.ms';
+const url = 'http://localhost:3000';
 
 //Generar tabla de notas mayores de 3
 document.addEventListener('DOMContentLoaded', () => {
