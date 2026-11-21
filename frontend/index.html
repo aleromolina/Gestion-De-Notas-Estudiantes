@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colegio</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>COLEGIO <span>PRUEBA</span></h1>
+        <p>Sistema de Gestión Académica</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Menú de opciones -->
+        <section class="menu-section">
+            <h2>Menú de opciones</h2>
+
+            <nav class="menu">
+                <button id="crearEstudiante">
+                    ＋ Crear Estudiante
+                </button>
+
+                <button id="agregarNota">
+                    ✎ Agregar Nota
+                </button>
+
+                <button id="consultarNota">
+                    ⌕ Consultar Notas Estudiante
+                </button>
+
+                <button id="notasAprobadas">
+                    ✓ Notas Aprobadas
+                </button>
+            </nav>
+        </section>
+
+        <dialog id="modalCrearEstudiante">
+            <h2>Registrar Estudiante</h2>
+            <div class="campos">
+                <label for="documnetoEstudiante">Documento:
+                    <input type="text" id="documentoEstudiante" placeholder="No. Documento">
+                </label>
+                <label for="nombreEstudiante">Nombre:
+                    <input type="text" id="nombreEstudiante" placeholder="Nombre Completo">
+                </label>
+                <label for="correoEstudiante">Correo:
+                    <input type="email" id="correoEstudiante" placeholder="Correo">
+                </label>
+                <div class="modal-buttons">
+                    <button id="botonCrearEstudiante">Crear</button>
+                    <button id="botonCancelarEstudiante">Cancelar</button>
+                </div>
+            </div>
+        </dialog>
+
+        <dialog id="modalAgregarNota">
+            <h2>Agregar nota</h2>
+            <div class="campos">
+                <label for="idEstudiante">Estudiante:
+                    <select id="idEstudiante">
+                        <option value="" selected>-----</option>
+                    </select>
+                </label>
+                <label for="idCurso">Materia:
+                    <select id="idCurso">
+                        <option value="" selected>-----</option>
+                    </select>
+                </label>
+                <label for="notaEstudiante">Nota:
+                    <input type="number" id="notaEstudiante" min="0" max="5" step="0.01"
+                        placeholder="Digite nota de 0 a 5">
+                </label>
+                <div class="modal-buttons">
+                    <button id="botonAsignarNota">Agregar</button>
+                    <button id="botonCancelarNota">Cancelar</button>
+                </div>
+            </div>
+        </dialog>
+
+        <dialog id="modalNotasAprobadas">
+            <h2>Notas Aprobadas</h2>
+            <div class="campos">
+                <div class="table-container tabla-notas-aprobadas">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Estudiante</th>
+                                <th>Curso</th>
+                                <th>Nota</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaNotasAprobadas"></tbody>
+                    </table>
+                </div>
+                 
+                <div class="modal-buttons">
+                    <button id="botonCerrarNotas">Cerrar</button>
+                </div>
+            </div>
+        </dialog>
+
+        <dialog id="modalConsultarNotaEstudiante">
+            <h2>Consultar Notas Estudiante</h2>
+            <div class="campos">
+                <label for="">
+                    <select id="idEstudianteNota">
+                        <option value="" selected>-----</option>
+                    </select>
+                </label>
+
+                <table id="tablaNotaEstudiante">
+
+                </table>
+                <div class="modal-buttons">
+                    <button id="botonConsultarNota">Consultar</button>
+                    <button id="botonCancelarConsulta">Cancelar</button>
+                </div>
+
+            </div>
+        </dialog>
+
+
+        <!-- Tabla de estudiantes -->
+        <section class="table-section">
+
+            <div class="section-header">
+                <div>
+                    <h2>Notas Totales</h2>
+                    <p>Registro académico de estudiantes</p>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Estudiante</th>
+                            <th>Curso</th>
+                            <th>Nota</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tablaNotaEstudiantes">
+                        <!-- Datos insertados mediante JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Colegio PRUEBA | Sistema de Gestión Académica</p>
+    </footer>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>

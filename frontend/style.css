@@ -1,0 +1,630 @@
+:root {
+    --fondo: #f4f5f2;
+    --panel: #ffffff;
+    --panel-alt: #f0f2ee;
+    --borde: #e0e3dd;
+    --borde-fuerte: #c9cec6;
+    --texto: #1b2420;
+    --texto-suave: #3f4a44;
+    --texto-tenue: #6b756e;
+    --acento: #1f6f5c;
+    --acento-hover: #175a4a;
+    --acento-claro: #e6f1ed;
+    --peligro: #b42318;
+    --peligro-hover: #912018;
+    --peligro-claro: #fdecea;
+    --ok: #166534;
+    --ok-claro: #dcf2e3;
+    --sombra: 0 1px 2px rgba(20, 35, 30, 0.06), 0 4px 14px rgba(20, 35, 30, 0.05);
+    --radio: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    background: var(--fondo);
+    color: var(--texto);
+    overflow-x: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 2px solid var(--acento);
+    outline-offset: 2px;
+}
+
+/* Encabezado */
+
+.header {
+    padding: 34px 20px 30px;
+    text-align: center;
+    background: #15271f;
+    color: #f3f6f4;
+}
+
+.header h1 {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    overflow-wrap: anywhere;
+}
+
+.header h1 span {
+    font-weight: 400;
+    color: #a9cfc2;
+}
+
+.header p {
+    margin-top: 6px;
+    font-size: 14px;
+    color: #9bb3a9;
+}
+
+/* Estructura */
+
+.container {
+    width: min(92%, 1200px);
+    margin: 36px auto;
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.menu-section,
+.table-section {
+    min-width: 0;
+    padding: 24px;
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
+.menu-section {
+    position: sticky;
+    top: 20px;
+}
+
+.menu-section h2,
+.table-section h2 {
+    margin-bottom: 18px;
+    font-size: 18px;
+    font-weight: 650;
+    color: var(--texto);
+}
+
+/* Menú */
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.menu a,
+.menu button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    padding: 11px 12px;
+    text-align: left;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--texto-suave);
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.menu a:hover,
+.menu button:hover {
+    background: var(--acento-claro);
+    color: var(--acento);
+}
+
+/* Cabecera de sección */
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.section-header h2 {
+    margin-bottom: 2px;
+}
+
+.section-header p {
+    font-size: 13px;
+    color: var(--texto-tenue);
+}
+
+.status {
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--ok);
+    background: var(--ok-claro);
+    border-radius: 999px;
+}
+
+.status.error {
+    color: var(--peligro);
+    background: var(--peligro-claro);
+}
+
+/* Tablas */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+}
+
+table {
+    width: 100%;
+    min-width: 550px;
+    border-collapse: collapse;
+}
+
+thead {
+    background: var(--panel-alt);
+}
+
+th {
+    padding: 13px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    white-space: nowrap;
+    color: var(--texto-tenue);
+    border-bottom: 1px solid var(--borde);
+}
+
+td {
+    padding: 13px 14px;
+    font-size: 14px;
+    color: var(--texto-suave);
+    border-bottom: 1px solid var(--borde);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: #f8f9f7;
+}
+
+dialog table {
+    min-width: 500px;
+}
+
+dialog .campos > table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Acciones en filas */
+
+td button {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    background: var(--acento);
+    border: none;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+
+td button:hover {
+    background: var(--acento-hover);
+}
+
+td button.peligro {
+    background: var(--peligro);
+}
+
+td button.peligro:hover {
+    background: var(--peligro-hover);
+}
+
+.acciones {
+    display: flex;
+    gap: 8px;
+}
+
+td.acciones {
+    display: table-cell;
+    white-space: nowrap;
+}
+
+td.acciones > * + * {
+    margin-left: 8px;
+}
+
+.btn-icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1;
+    color: var(--texto-tenue);
+    background: var(--panel);
+    border: 1px solid var(--borde-fuerte);
+    border-radius: 8px;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.btn-icono.editar:hover {
+    color: var(--acento);
+    background: var(--acento-claro);
+    border-color: var(--acento);
+}
+
+.btn-icono.eliminar:hover {
+    color: var(--peligro);
+    background: var(--peligro-claro);
+    border-color: var(--peligro);
+}
+
+/* Nota editable */
+
+.td-nota-editable {
+    font-weight: 600;
+    color: var(--acento);
+    background: var(--acento-claro);
+    box-shadow: inset 0 0 0 1px #b7d6cb;
+    cursor: text;
+}
+
+.td-nota-editable:focus {
+    color: var(--texto);
+    background: #fff;
+    box-shadow: inset 0 0 0 2px var(--acento);
+    outline: none;
+}
+
+/* Salida de texto */
+
+pre,
+#salida {
+    margin-top: 20px;
+    padding: 14px 16px;
+    min-height: 80px;
+    font: 13px/1.6 ui-monospace, Consolas, monospace;
+    color: var(--texto-suave);
+    background: var(--panel-alt);
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: auto;
+}
+
+/* Modales */
+
+dialog {
+    width: min(90%, 450px);
+    max-height: 85vh;
+    margin: auto;
+    padding: 28px;
+    color: var(--texto);
+    background: var(--panel);
+    border: 1px solid var(--borde);
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(15, 25, 20, 0.25);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+dialog[open] {
+    animation: aparecer 0.18s ease-out;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
+dialog::backdrop {
+    background: rgba(15, 25, 20, 0.5);
+    backdrop-filter: blur(3px);
+}
+
+dialog h2 {
+    margin-bottom: 22px;
+    font-size: 21px;
+    font-weight: 650;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+dialog .campos {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+}
+
+dialog label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--texto-suave);
+}
+
+dialog input,
+dialog select,
+dialog textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 11px 12px;
+    font-size: 14px;
+    color: var(--texto);
+    background: #fff;
+    border: 1px solid var(--borde-fuerte);
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+dialog input::placeholder {
+    color: #98a19b;
+}
+
+dialog input:focus,
+dialog select:focus,
+dialog textarea:focus {
+    border-color: var(--acento);
+    box-shadow: 0 0 0 3px rgba(31, 111, 92, 0.15);
+}
+
+dialog select {
+    appearance: none;
+    cursor: pointer;
+    padding-right: 38px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236b756e' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+
+/* Botones de modales */
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.modal-buttons button,
+#botonCrearEstudiante,
+#botonCancelarEstudiante,
+#botonAsignarNota,
+#botonCancelarNota {
+    padding: 11px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background: var(--acento);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.modal-buttons button:hover,
+#botonCrearEstudiante:hover,
+#botonAsignarNota:hover {
+    background: var(--acento-hover);
+}
+
+.modal-buttons .cancelar,
+#botonCancelarEstudiante,
+#botonCancelarNota {
+    color: var(--texto-suave);
+    background: var(--panel);
+    border-color: var(--borde-fuerte);
+}
+
+.modal-buttons .cancelar:hover,
+#botonCancelarEstudiante:hover,
+#botonCancelarNota:hover {
+    background: var(--panel-alt);
+}
+
+.modal-buttons .peligro {
+    background: var(--peligro);
+}
+
+.modal-buttons .peligro:hover {
+    background: var(--peligro-hover);
+}
+
+/* Consulta de notas */
+
+#modalConsultarNotaEstudiante,
+#modalNotasAprobadas {
+    width: fit-content;
+    min-width: 320px;
+    max-width: 90vw;
+    padding: 24px;
+    overflow: auto;
+}
+
+#tablaNotaEstudiante {
+    width: 100%;
+    margin: 14px 0;
+    border-collapse: collapse;
+}
+
+#tablaNotaEstudiante th,
+#tablaNotaEstudiante td {
+    padding: 9px 12px;
+    text-align: left;
+    border: 1px solid var(--borde);
+}
+
+/* Pie de página */
+
+footer {
+    margin-top: 30px;
+    padding: 24px 15px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--texto-tenue);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin: 28px auto;
+    }
+
+    .menu-section {
+        position: static;
+    }
+
+    .menu {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        padding: 24px 14px;
+    }
+
+    .header h1 {
+        font-size: 24px;
+    }
+
+    .header p {
+        font-size: 12px;
+    }
+
+    .container {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .menu-section,
+    .table-section {
+        padding: 16px;
+    }
+
+    .menu {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    th,
+    td {
+        padding: 11px 10px;
+        font-size: 12px;
+    }
+
+    dialog {
+        width: 94%;
+        padding: 20px 16px;
+    }
+
+    dialog h2 {
+        font-size: 19px;
+        margin-bottom: 18px;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+    }
+
+    .modal-buttons button {
+        width: 100%;
+    }
+
+    #modalConsultarNotaEstudiante,
+    #modalNotasAprobadas {
+        width: 94%;
+        min-width: 0;
+        max-width: 94vw;
+        padding: 16px;
+    }
+
+    #tablaNotaEstudiante {
+        min-width: 550px;
+    }
+
+    footer {
+        padding: 20px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1300px;
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 30px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
